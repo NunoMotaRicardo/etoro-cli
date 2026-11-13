@@ -1,0 +1,32 @@
+# .sdlc/sdlc-config.yml — per-repo configuration read by the developer-lifecycle skills.
+# Contract: docs/sdlc-contract.md in the nmr-adlc plugin.
+
+default_branch: main
+
+github:
+  owner: "NunoMotaRicardo"
+  repository: "etoro-cli"
+  slug: "NunoMotaRicardo/etoro-cli"
+
+implement:
+  worktree_path: ".worktrees/issue-{issue}"
+  branch: "issue-{issue}-{slug}"
+  max_changed_loc: 500
+
+prototype:
+  worktree_path: ".worktrees/prototype-{slug}"
+  branch: "prototype-{slug}"
+
+review:
+  bots: []
+
+quality_gates:
+  test: "go test ./..."
+  lint: "go vet ./..."
+  format_check: "test -z \"$(gofmt -l .)\""
+  type_check: "go build ./..."
+
+wiki_sync:
+  enabled: true
+  source_path: "wiki"
+  workflow_path: ".github/workflows/wiki-sync.yml"

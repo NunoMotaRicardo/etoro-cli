@@ -1,0 +1,7 @@
+.worktrees/
+dist/
+/etoro-cli
+/etoro-cli.exe
+*.test
+.env
+.DS_Store
