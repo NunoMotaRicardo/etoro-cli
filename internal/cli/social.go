@@ -124,9 +124,9 @@ func (a *App) cmdWatchlists() *cobra.Command {
 	}
 	items := &cobra.Command{Use: "items", Short: "Add or remove watchlist items"}
 	var itemType string
-	mk := func(use, method, verb string) *cobra.Command {
+	mk := func(use, method, verb, short string) *cobra.Command {
 		return &cobra.Command{
-			Use: use + " <watchlistId> <SYMBOL|id>...", Short: strings.Title(verb) + " items (needs --yes)", Args: cobra.MinimumNArgs(2),
+			Use: use + " <watchlistId> <SYMBOL|id>...", Short: short, Args: cobra.MinimumNArgs(2),
 			RunE: func(cmd *cobra.Command, args []string) error {
 				id, err := positiveID(args[0], "watchlistId")
 				if err != nil {
@@ -167,7 +167,7 @@ func (a *App) cmdWatchlists() *cobra.Command {
 			},
 		}
 	}
-	add, rm := mk("add", "POST", "add to"), mk("remove", "DELETE", "remove from")
+	add, rm := mk("add", "POST", "add to", "Add items (needs --yes)"), mk("remove", "DELETE", "remove from", "Remove items (needs --yes)")
 	for _, c := range []*cobra.Command{add, rm} {
 		c.Flags().StringVar(&itemType, "type", "Instrument", "Instrument or Person")
 	}

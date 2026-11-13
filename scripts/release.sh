@@ -50,7 +50,7 @@ fi
 scripts/check-versions.sh
 git add -A
 if ! git diff --cached --quiet; then
-  git commit -m "chore(release): v$new" -m "Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
+  git commit -m "chore(release): v$new"
 fi
 git tag -a "v$new" -m "etoro-cli v$new"
 echo
