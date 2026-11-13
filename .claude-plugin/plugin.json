@@ -1,0 +1,10 @@
+{
+  "name": "etoro-cli",
+  "version": "0.1.0",
+  "description": "eToro Public API CLI for AI agents: token-lean quotes, portfolio, watchlists, investors and demo-first trading, with a guided API key wizard.",
+  "author": { "name": "NunoMotaRicardo" },
+  "homepage": "https://github.com/NunoMotaRicardo/etoro-cli",
+  "repository": "https://github.com/NunoMotaRicardo/etoro-cli",
+  "license": "MIT",
+  "keywords": ["etoro", "trading", "cli", "api"]
+}
