@@ -4,6 +4,7 @@ import (
 	"errors"
 	"os"
 	"path/filepath"
+	"runtime"
 	"testing"
 )
 
@@ -35,7 +36,8 @@ func TestFileFallbackIs0600(t *testing.T) {
 		t.Fatalf("%v %s", err, src)
 	}
 	st, _ := os.Stat(s.File)
-	if st.Mode().Perm() != 0o600 {
+	// Windows has no Unix permission bits; the file sits in the per-user profile there.
+	if runtime.GOOS != "windows" && st.Mode().Perm() != 0o600 {
 		t.Fatalf("mode %v", st.Mode())
 	}
 	c, src, err := s.Get("demo")
