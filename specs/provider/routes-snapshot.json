@@ -1,0 +1,1036 @@
+{
+  "source": "eToro MCP get-all-routes",
+  "apiVersion": "v1.415.0",
+  "fetchedAt": "2026-11-13",
+  "routes": [
+    {
+      "id": "getAgentPortfolios",
+      "method": "GET",
+      "path": "/api/v1/agent-portfolios",
+      "summary": "Get Agent Portfolios"
+    },
+    {
+      "id": "createAgentPortfolios",
+      "method": "POST",
+      "path": "/api/v1/agent-portfolios",
+      "summary": "Create Agent Portfolio",
+      "deprecated": true,
+      "mutating": true
+    },
+    {
+      "id": "deleteAgentPortfoliosByAgentPortfolioId",
+      "method": "DELETE",
+      "path": "/api/v1/agent-portfolios/{agentPortfolioId}",
+      "summary": "Delete Agent Portfolio",
+      "mutating": true
+    },
+    {
+      "id": "createAgentPortfoliosByAgentPortfolioIdUserTokens",
+      "method": "POST",
+      "path": "/api/v1/agent-portfolios/{agentPortfolioId}/user-tokens",
+      "summary": "Create User Token",
+      "deprecated": true,
+      "mutating": true
+    },
+    {
+      "id": "deleteAgentPortfoliosByAgentPortfolioIdUserTokensByUserTokenId",
+      "method": "DELETE",
+      "path": "/api/v1/agent-portfolios/{agentPortfolioId}/user-tokens/{userTokenId}",
+      "summary": "Delete User Token",
+      "mutating": true
+    },
+    {
+      "id": "updateAgentPortfoliosByAgentPortfolioIdUserTokensByUserTokenId",
+      "method": "PATCH",
+      "path": "/api/v1/agent-portfolios/{agentPortfolioId}/user-tokens/{userTokenId}",
+      "summary": "Update User Token",
+      "deprecated": true,
+      "mutating": true
+    },
+    {
+      "id": "getBalances",
+      "method": "GET",
+      "path": "/api/v1/balances",
+      "summary": "Get aggregated balances"
+    },
+    {
+      "id": "getHistoricalBalances",
+      "method": "GET",
+      "path": "/api/v1/balances/history",
+      "summary": "Get historical balance snapshots"
+    },
+    {
+      "id": "getBalancesByAccountType",
+      "method": "GET",
+      "path": "/api/v1/balances/{accountType}",
+      "summary": "Get balances by account type"
+    },
+    {
+      "id": "getHistoricalBalancesByAccountType",
+      "method": "GET",
+      "path": "/api/v1/balances/{accountType}/history",
+      "summary": "Get historical balances by account type"
+    },
+    {
+      "id": "getBalanceByAccount",
+      "method": "GET",
+      "path": "/api/v1/balances/{accountType}/{accountId}",
+      "summary": "Get balance for a specific account"
+    },
+    {
+      "id": "getHistoricalBalanceByAccount",
+      "method": "GET",
+      "path": "/api/v1/balances/{accountType}/{accountId}/history",
+      "summary": "Get account balance history"
+    },
+    {
+      "id": "getClubs",
+      "method": "GET",
+      "path": "/api/v1/clubs",
+      "summary": "Get club dashboard data"
+    },
+    {
+      "id": "getCuratedLists",
+      "method": "GET",
+      "path": "/api/v1/curated-lists",
+      "summary": "Get curated lists"
+    },
+    {
+      "id": "getPriceCandles",
+      "method": "GET",
+      "path": "/api/v1/data/instruments/{instrumentId}/candles",
+      "summary": "Get price candles for an instrument"
+    },
+    {
+      "id": "getPriceCandleCoverage",
+      "method": "GET",
+      "path": "/api/v1/data/instruments/{instrumentId}/candles/coverage",
+      "summary": "Get where price candles exist for an instrument"
+    },
+    {
+      "id": "getClosedPositionEventsHistory",
+      "method": "GET",
+      "path": "/api/v1/data/positions/closed-events/history",
+      "summary": "Get the caller's closed position event history counts"
+    },
+    {
+      "id": "getStockbackPayments",
+      "method": "GET",
+      "path": "/api/v1/data/stockback/payments",
+      "summary": "Get Stockback Payments"
+    },
+    {
+      "id": "getStockbackPromoStatus",
+      "method": "GET",
+      "path": "/api/v1/data/stockback/promo-status",
+      "summary": "Get the caller's StockBack/Cashback promo status"
+    },
+    {
+      "id": "listStrategyPrompts",
+      "method": "GET",
+      "path": "/api/v1/data/strategy-prompts",
+      "summary": "List published strategy prompts"
+    },
+    {
+      "id": "getStrategyPrompt",
+      "method": "GET",
+      "path": "/api/v1/data/strategy-prompts/{id}",
+      "summary": "Get one published strategy prompt"
+    },
+    {
+      "id": "getImpressionsTopassetsUserByGcid",
+      "method": "GET",
+      "path": "/api/v1/impressions/topassets/user/{gcid}",
+      "summary": "Get top assets for a user"
+    },
+    {
+      "id": "getKeydataByApplication",
+      "method": "GET",
+      "path": "/api/v1/keydata/{application}",
+      "summary": "Get application key data"
+    },
+    {
+      "id": "getMarketDataExchanges",
+      "method": "GET",
+      "path": "/api/v1/market-data/exchanges",
+      "summary": "List supported exchanges"
+    },
+    {
+      "id": "getMarketDataInstrumentTypes",
+      "method": "GET",
+      "path": "/api/v1/market-data/instrument-types",
+      "summary": "List instrument types"
+    },
+    {
+      "id": "getMarketDataInstruments",
+      "method": "GET",
+      "path": "/api/v1/market-data/instruments",
+      "summary": "Get instrument display data"
+    },
+    {
+      "id": "getMarketDataInstrumentsHistoryClosingPrice",
+      "method": "GET",
+      "path": "/api/v1/market-data/instruments/history/closing-price",
+      "summary": "Get historical closing prices"
+    },
+    {
+      "id": "getMarketDataInstrumentsRates",
+      "method": "GET",
+      "path": "/api/v1/market-data/instruments/rates",
+      "summary": "Get instrument market rates"
+    },
+    {
+      "id": "getMarketDataInstrumentsByInstrumentIdHistoryCandlesByDirectionByIntervalByCandlesCount",
+      "method": "GET",
+      "path": "/api/v1/market-data/instruments/{instrumentId}/history/candles/{direction}/{interval}/{candlesCount}",
+      "summary": "Get instrument candle history"
+    },
+    {
+      "id": "getMarketDataSearch",
+      "method": "GET",
+      "path": "/api/v1/market-data/search",
+      "summary": "Search for Instruments"
+    },
+    {
+      "id": "getMarketDataStocksIndustries",
+      "method": "GET",
+      "path": "/api/v1/market-data/stocks-industries",
+      "summary": "Get stocks industries"
+    },
+    {
+      "id": "getMarketRecommendationsByItemsCount",
+      "method": "GET",
+      "path": "/api/v1/market-recommendations/{itemsCount}",
+      "summary": "Get market recommendations"
+    },
+    {
+      "id": "getMe",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "summary": "Get authenticated user profile"
+    },
+    {
+      "id": "listCashAccountTransactions",
+      "method": "GET",
+      "path": "/api/v1/money/accounts/cash/{accountId}/transactions",
+      "summary": "List cash account transactions (paginated)"
+    },
+    {
+      "id": "getTransferEligibility",
+      "method": "GET",
+      "path": "/api/v1/money/transfer-eligibility",
+      "summary": "Transfer eligibility (source and destination accounts)"
+    },
+    {
+      "id": "getTransferFeeConfiguration",
+      "method": "GET",
+      "path": "/api/v1/money/transfer-fee-configurations",
+      "summary": "List transfer fees"
+    },
+    {
+      "id": "getTransferLimits",
+      "method": "GET",
+      "path": "/api/v1/money/transfer-limits",
+      "summary": "List transfer limits"
+    },
+    {
+      "id": "getTransferableBalance",
+      "method": "GET",
+      "path": "/api/v1/money/transferable-balance",
+      "summary": "Get max transferable amount"
+    },
+    {
+      "id": "postMoneyTransfer",
+      "method": "POST",
+      "path": "/api/v1/money/transfers",
+      "summary": "Execute an internal account-to-account transfer",
+      "mutating": true
+    },
+    {
+      "id": "getTransferById",
+      "method": "GET",
+      "path": "/api/v1/money/transfers/{transferId}",
+      "summary": "Get transfer by ID"
+    },
+    {
+      "id": "lookupTransfersByRequestReferenceId",
+      "method": "GET",
+      "path": "/api/v1/money/transfers:lookup",
+      "summary": "List transfers by reference ID"
+    },
+    {
+      "id": "getNotificationsMessages",
+      "method": "GET",
+      "path": "/api/v1/notifications/messages",
+      "summary": "Get in-app notifications"
+    },
+    {
+      "id": "patchNotificationsMessages",
+      "method": "PATCH",
+      "path": "/api/v1/notifications/messages",
+      "summary": "Mark all notifications as read",
+      "mutating": true
+    },
+    {
+      "id": "getPiDataCopiers",
+      "method": "GET",
+      "path": "/api/v1/pi-data/copiers",
+      "summary": "Get copiers public info"
+    },
+    {
+      "id": "searchPortfolios",
+      "method": "GET",
+      "path": "/api/v1/portfolios/search",
+      "summary": "Search for trader portfolios or Smart Portfolios by free-text query"
+    },
+    {
+      "id": "getPriceAlerts",
+      "method": "GET",
+      "path": "/api/v1/price-alerts",
+      "summary": "Get price alerts"
+    },
+    {
+      "id": "postPriceAlerts",
+      "method": "POST",
+      "path": "/api/v1/price-alerts",
+      "summary": "Create a price alert",
+      "mutating": true
+    },
+    {
+      "id": "deletePriceAlertsByAlertId",
+      "method": "DELETE",
+      "path": "/api/v1/price-alerts/{alertId}",
+      "summary": "Delete a price alert",
+      "mutating": true
+    },
+    {
+      "id": "patchPriceAlertsByAlertId",
+      "method": "PATCH",
+      "path": "/api/v1/price-alerts/{alertId}",
+      "summary": "Update a price alert",
+      "mutating": true
+    },
+    {
+      "id": "getApplications",
+      "method": "GET",
+      "path": "/api/v1/sso/applications",
+      "summary": "List my OAuth applications"
+    },
+    {
+      "id": "createApplications",
+      "method": "POST",
+      "path": "/api/v1/sso/applications",
+      "summary": "Register OAuth application",
+      "mutating": true
+    },
+    {
+      "id": "deleteApplicationsByClientId",
+      "method": "DELETE",
+      "path": "/api/v1/sso/applications/{clientId}",
+      "summary": "Delete OAuth application",
+      "mutating": true
+    },
+    {
+      "id": "updateApplicationsByClientId",
+      "method": "PUT",
+      "path": "/api/v1/sso/applications/{clientId}",
+      "summary": "Update OAuth application",
+      "mutating": true
+    },
+    {
+      "id": "rotateApplicationsClientSecretByClientId",
+      "method": "POST",
+      "path": "/api/v1/sso/applications/{clientId}/client-secret",
+      "summary": "Replace OAuth client secret",
+      "mutating": true
+    },
+    {
+      "id": "getScopes",
+      "method": "GET",
+      "path": "/api/v1/sso/scopes",
+      "summary": "List available OAuth scopes"
+    },
+    {
+      "id": "createSubAccountMoneyTransfer",
+      "method": "POST",
+      "path": "/api/v1/sub-accounts/etoro-trading/money-transfers",
+      "summary": "Create Sub-Account Money Transfer",
+      "mutating": true
+    },
+    {
+      "id": "getSubAccountUserTokens",
+      "method": "GET",
+      "path": "/api/v1/sub-accounts/etoro-trading/user-tokens",
+      "summary": "List Sub-Account User Tokens"
+    },
+    {
+      "id": "createSubAccountUserToken",
+      "method": "POST",
+      "path": "/api/v1/sub-accounts/etoro-trading/user-tokens",
+      "summary": "Create Sub-Account User Token",
+      "mutating": true
+    },
+    {
+      "id": "getSubAccountUserTokenScopes",
+      "method": "GET",
+      "path": "/api/v1/sub-accounts/etoro-trading/user-tokens/scopes",
+      "summary": "Get Allowed Sub-Account Token Scopes"
+    },
+    {
+      "id": "deleteSubAccountUserToken",
+      "method": "DELETE",
+      "path": "/api/v1/sub-accounts/etoro-trading/user-tokens/{userTokenId}",
+      "summary": "Revoke Sub-Account User Token",
+      "mutating": true
+    },
+    {
+      "id": "updateSubAccountUserToken",
+      "method": "PATCH",
+      "path": "/api/v1/sub-accounts/etoro-trading/user-tokens/{userTokenId}",
+      "summary": "Update Sub-Account User Token",
+      "mutating": true
+    },
+    {
+      "id": "getMySubAccounts",
+      "method": "GET",
+      "path": "/api/v1/sub-accounts/me/accounts",
+      "summary": "Get My Sub-Accounts"
+    },
+    {
+      "id": "createMySubAccount",
+      "method": "POST",
+      "path": "/api/v1/sub-accounts/me/accounts",
+      "summary": "Create My Sub-Account",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionDemoLimitOrders",
+      "method": "POST",
+      "path": "/api/v1/trading/execution/demo/limit-orders",
+      "summary": "Place demo limit order (market-if-touched)",
+      "mutating": true
+    },
+    {
+      "id": "deleteTradingExecutionDemoLimitOrdersByOrderId",
+      "method": "DELETE",
+      "path": "/api/v1/trading/execution/demo/limit-orders/{orderId}",
+      "summary": "Cancel pending demo limit order",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionDemoMarketCloseOrdersPositionsByPositionId",
+      "method": "POST",
+      "path": "/api/v1/trading/execution/demo/market-close-orders/positions/{positionId}",
+      "summary": "Close demo position by units",
+      "mutating": true
+    },
+    {
+      "id": "deleteTradingExecutionDemoMarketCloseOrdersByOrderId",
+      "method": "DELETE",
+      "path": "/api/v1/trading/execution/demo/market-close-orders/{orderId}",
+      "summary": "Cancel pending demo close order",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionDemoMarketOpenOrdersByAmount",
+      "method": "POST",
+      "path": "/api/v1/trading/execution/demo/market-open-orders/by-amount",
+      "summary": "Open demo order by amount",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionDemoMarketOpenOrdersByUnits",
+      "method": "POST",
+      "path": "/api/v1/trading/execution/demo/market-open-orders/by-units",
+      "summary": "Open demo market order by units",
+      "mutating": true
+    },
+    {
+      "id": "deleteTradingExecutionDemoMarketOpenOrdersByOrderId",
+      "method": "DELETE",
+      "path": "/api/v1/trading/execution/demo/market-open-orders/{orderId}",
+      "summary": "Cancel pending demo open order",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionLimitOrders",
+      "method": "POST",
+      "path": "/api/v1/trading/execution/limit-orders",
+      "summary": "Place limit order (market-if-touched)",
+      "mutating": true
+    },
+    {
+      "id": "deleteTradingExecutionLimitOrdersByOrderId",
+      "method": "DELETE",
+      "path": "/api/v1/trading/execution/limit-orders/{orderId}",
+      "summary": "Cancel pending limit order",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionMarketCloseOrdersPositionsByPositionId",
+      "method": "POST",
+      "path": "/api/v1/trading/execution/market-close-orders/positions/{positionId}",
+      "summary": "Close position by units",
+      "mutating": true
+    },
+    {
+      "id": "deleteTradingExecutionMarketCloseOrdersByOrderId",
+      "method": "DELETE",
+      "path": "/api/v1/trading/execution/market-close-orders/{orderId}",
+      "summary": "Cancel pending close order",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionMarketOpenOrdersByAmount",
+      "method": "POST",
+      "path": "/api/v1/trading/execution/market-open-orders/by-amount",
+      "summary": "Open market order by cash amount",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionMarketOpenOrdersByUnits",
+      "method": "POST",
+      "path": "/api/v1/trading/execution/market-open-orders/by-units",
+      "summary": "Open market order by units",
+      "mutating": true
+    },
+    {
+      "id": "deleteTradingExecutionMarketOpenOrdersByOrderId",
+      "method": "DELETE",
+      "path": "/api/v1/trading/execution/market-open-orders/{orderId}",
+      "summary": "Cancel pending open order",
+      "mutating": true
+    },
+    {
+      "id": "getAggregatedPortfolio",
+      "method": "GET",
+      "path": "/api/v1/trading/info/aggregate-portfolio",
+      "summary": "Get aggregated portfolio snapshot"
+    },
+    {
+      "id": "postAggregatedPortfolio",
+      "method": "POST",
+      "path": "/api/v1/trading/info/aggregate-portfolio",
+      "summary": "Get a filtered aggregated portfolio snapshot",
+      "readOnlyPost": true
+    },
+    {
+      "id": "getAggregatedPortfolioDemo",
+      "method": "GET",
+      "path": "/api/v1/trading/info/demo/aggregate-portfolio",
+      "summary": "Get aggregated portfolio snapshot"
+    },
+    {
+      "id": "postAggregatedPortfolioDemo",
+      "method": "POST",
+      "path": "/api/v1/trading/info/demo/aggregate-portfolio",
+      "summary": "Get a filtered aggregated portfolio snapshot",
+      "readOnlyPost": true
+    },
+    {
+      "id": "getTradingInfoDemoCloseOrdersByOrderId",
+      "method": "GET",
+      "path": "/api/v1/trading/info/demo/close-orders/{orderId}",
+      "summary": "Get close order information and closed position details"
+    },
+    {
+      "id": "getTradingInfoDemoOrdersByOrderId",
+      "method": "GET",
+      "path": "/api/v1/trading/info/demo/orders/{orderId}",
+      "summary": "Get order information"
+    },
+    {
+      "id": "getTradingInfoDemoPnl",
+      "method": "GET",
+      "path": "/api/v1/trading/info/demo/pnl",
+      "summary": "Get account PnL and portfolio details"
+    },
+    {
+      "id": "getTradingInfoDemoPortfolio",
+      "method": "GET",
+      "path": "/api/v1/trading/info/demo/portfolio",
+      "summary": "Get demo portfolio breakdown"
+    },
+    {
+      "id": "getTradingInfoPortfolio",
+      "method": "GET",
+      "path": "/api/v1/trading/info/portfolio",
+      "summary": "Get portfolio breakdown"
+    },
+    {
+      "id": "getTradingInfoRealCloseOrdersByOrderId",
+      "method": "GET",
+      "path": "/api/v1/trading/info/real/close-orders/{orderId}",
+      "summary": "Get close order information and closed position details"
+    },
+    {
+      "id": "getTradingInfoRealOrdersByOrderId",
+      "method": "GET",
+      "path": "/api/v1/trading/info/real/orders/{orderId}",
+      "summary": "Get order information"
+    },
+    {
+      "id": "getTradingInfoRealPnl",
+      "method": "GET",
+      "path": "/api/v1/trading/info/real/pnl",
+      "summary": "Get account PnL and portfolio details"
+    },
+    {
+      "id": "getTradingInfoTradeDemoHistory",
+      "method": "GET",
+      "path": "/api/v1/trading/info/trade/demo/history",
+      "summary": "List trading history"
+    },
+    {
+      "id": "getTradingInfoTradeHistory",
+      "method": "GET",
+      "path": "/api/v1/trading/info/trade/history",
+      "summary": "List trading history"
+    },
+    {
+      "id": "getUserInfoPeople",
+      "method": "GET",
+      "path": "/api/v1/user-info/people",
+      "summary": "Get user profile and account summary"
+    },
+    {
+      "id": "getUserInfoPeopleSearch",
+      "method": "GET",
+      "path": "/api/v1/user-info/people/search",
+      "summary": "Search users"
+    },
+    {
+      "id": "getUserInfoPeopleByUsernameDailyGain",
+      "method": "GET",
+      "path": "/api/v1/user-info/people/{username}/daily-gain",
+      "summary": "Get user daily performance"
+    },
+    {
+      "id": "getUserInfoPeopleByUsernameGain",
+      "method": "GET",
+      "path": "/api/v1/user-info/people/{username}/gain",
+      "summary": "Get user performance history"
+    },
+    {
+      "id": "getUserInfoPeopleByUsernamePortfolioLive",
+      "method": "GET",
+      "path": "/api/v1/user-info/people/{username}/portfolio/live",
+      "summary": "Get user live portfolio"
+    },
+    {
+      "id": "getUserInfoPeopleByUsernameTradeinfo",
+      "method": "GET",
+      "path": "/api/v1/user-info/people/{username}/tradeinfo",
+      "summary": "Get user trade info"
+    },
+    {
+      "id": "getWatchlists",
+      "method": "GET",
+      "path": "/api/v1/watchlists",
+      "summary": "Get user watchlists"
+    },
+    {
+      "id": "postWatchlists",
+      "method": "POST",
+      "path": "/api/v1/watchlists",
+      "summary": "Create a new watchlist",
+      "mutating": true
+    },
+    {
+      "id": "postWatchlistsDefaultWatchlistSelectedItems",
+      "method": "POST",
+      "path": "/api/v1/watchlists/default-watchlist/selected-items",
+      "summary": "Create default watchlist with selected items",
+      "mutating": true
+    },
+    {
+      "id": "getWatchlistsDefaultWatchlistsItems",
+      "method": "GET",
+      "path": "/api/v1/watchlists/default-watchlists/items",
+      "summary": "Get default watchlist items"
+    },
+    {
+      "id": "postWatchlistsNewasdefaultWatchlist",
+      "method": "POST",
+      "path": "/api/v1/watchlists/newasdefault-watchlist",
+      "summary": "Create watchlist and set as default",
+      "mutating": true
+    },
+    {
+      "id": "getWatchlistsPublicByUserId",
+      "method": "GET",
+      "path": "/api/v1/watchlists/public/{userId}",
+      "summary": "Get user's public watchlists"
+    },
+    {
+      "id": "getWatchlistsPublicByUserIdByWatchlistId",
+      "method": "GET",
+      "path": "/api/v1/watchlists/public/{userId}/{watchlistId}",
+      "summary": "Get single public watchlist"
+    },
+    {
+      "id": "putWatchlistsRankByWatchlistId",
+      "method": "PUT",
+      "path": "/api/v1/watchlists/rank/{watchlistId}",
+      "summary": "Change watchlist rank",
+      "mutating": true
+    },
+    {
+      "id": "putWatchlistsSetUserSelectedUserDefaultByWatchlistId",
+      "method": "PUT",
+      "path": "/api/v1/watchlists/setUserSelectedUserDefault/{watchlistId}",
+      "summary": "Set watchlist as default",
+      "mutating": true
+    },
+    {
+      "id": "deleteWatchlistsByWatchlistId",
+      "method": "DELETE",
+      "path": "/api/v1/watchlists/{watchlistId}",
+      "summary": "Delete watchlist",
+      "mutating": true
+    },
+    {
+      "id": "getWatchlistsByWatchlistId",
+      "method": "GET",
+      "path": "/api/v1/watchlists/{watchlistId}",
+      "summary": "Get single watchlist"
+    },
+    {
+      "id": "putWatchlistsByWatchlistId",
+      "method": "PUT",
+      "path": "/api/v1/watchlists/{watchlistId}",
+      "summary": "Rename watchlist",
+      "mutating": true
+    },
+    {
+      "id": "deleteWatchlistsByWatchlistIdItems",
+      "method": "DELETE",
+      "path": "/api/v1/watchlists/{watchlistId}/items",
+      "summary": "Remove items from watchlist",
+      "mutating": true
+    },
+    {
+      "id": "postWatchlistsByWatchlistIdItems",
+      "method": "POST",
+      "path": "/api/v1/watchlists/{watchlistId}/items",
+      "summary": "Add items to watchlist",
+      "mutating": true
+    },
+    {
+      "id": "putWatchlistsByWatchlistIdItems",
+      "method": "PUT",
+      "path": "/api/v1/watchlists/{watchlistId}/items",
+      "summary": "Update items in watchlist",
+      "mutating": true
+    },
+    {
+      "id": "createAgentPortfoliosV2",
+      "method": "POST",
+      "path": "/api/v2/agent-portfolios",
+      "summary": "Create Agent Portfolio (v2)",
+      "mutating": true
+    },
+    {
+      "id": "getAgentPortfoliosScopes",
+      "method": "GET",
+      "path": "/api/v2/agent-portfolios/user-tokens/scopes",
+      "summary": "Get Allowed Scopes (v2)"
+    },
+    {
+      "id": "createAgentPortfoliosByAgentPortfolioIdUserTokensV2",
+      "method": "POST",
+      "path": "/api/v2/agent-portfolios/{agentPortfolioId}/user-tokens",
+      "summary": "Create User Token (v2)",
+      "mutating": true
+    },
+    {
+      "id": "updateAgentPortfoliosByAgentPortfolioIdUserTokensByUserTokenIdV2",
+      "method": "PATCH",
+      "path": "/api/v2/agent-portfolios/{agentPortfolioId}/user-tokens/{userTokenId}",
+      "summary": "Update User Token (v2)",
+      "mutating": true
+    },
+    {
+      "id": "getSecurities",
+      "method": "GET",
+      "path": "/api/v2/market-data/instruments",
+      "summary": "Search for securities (instruments) by ID or symbol"
+    },
+    {
+      "id": "getInstrumentsSearch",
+      "method": "GET",
+      "path": "/api/v2/market-data/instruments/search",
+      "summary": "Search instruments by free-text query"
+    },
+    {
+      "id": "getRates",
+      "method": "GET",
+      "path": "/api/v2/market-data/rates",
+      "summary": "Retrieve bid/ask rates for one or more instruments"
+    },
+    {
+      "id": "getPortfoliosRankings",
+      "method": "GET",
+      "path": "/api/v2/portfolios/rankings",
+      "summary": "Get paginated investor rankings"
+    },
+    {
+      "id": "getMultiplePortfoliosRankings",
+      "method": "POST",
+      "path": "/api/v2/portfolios/rankings/multiple",
+      "summary": "Bulk-fetch ranking rows",
+      "mutating": true
+    },
+    {
+      "id": "listPortfolioRankingsPresets",
+      "method": "GET",
+      "path": "/api/v2/portfolios/rankings/presets",
+      "summary": "List available ranking presets"
+    },
+    {
+      "id": "getPortfolioRankingsByPreset",
+      "method": "GET",
+      "path": "/api/v2/portfolios/rankings/presets/{type}",
+      "summary": "Get rankings by named preset"
+    },
+    {
+      "id": "getPortfoliosRankingsSummary",
+      "method": "GET",
+      "path": "/api/v2/portfolios/rankings/summary",
+      "summary": "Get ranking universe aggregated by sector or industry"
+    },
+    {
+      "id": "listPortfolioRankingsTags",
+      "method": "GET",
+      "path": "/api/v2/portfolios/rankings/tags",
+      "summary": "List all ranking tags"
+    },
+    {
+      "id": "getAssetsHistory",
+      "method": "GET",
+      "path": "/api/v2/portfolios/{username}/assets/history",
+      "summary": "Get asset allocation history"
+    },
+    {
+      "id": "getPortfolioCopiers",
+      "method": "GET",
+      "path": "/api/v2/portfolios/{username}/copiers",
+      "summary": "Get portfolio copier stats"
+    },
+    {
+      "id": "getExposureHistory",
+      "method": "GET",
+      "path": "/api/v2/portfolios/{username}/exposure/history",
+      "summary": "Get market exposure history"
+    },
+    {
+      "id": "getGainHistory",
+      "method": "GET",
+      "path": "/api/v2/portfolios/{username}/gain/{granularity}",
+      "summary": "Get investor gain time-series"
+    },
+    {
+      "id": "getPortfolioRanking",
+      "method": "GET",
+      "path": "/api/v2/portfolios/{username}/rankings",
+      "summary": "Get ranking row for a single investor"
+    },
+    {
+      "id": "closeCopyTrading",
+      "method": "DELETE",
+      "path": "/api/v2/trading/copy",
+      "summary": "Close or detach a copy relationship",
+      "mutating": true
+    },
+    {
+      "id": "registerCopyTrading",
+      "method": "POST",
+      "path": "/api/v2/trading/copy",
+      "summary": "Start copying an investor, or adjust an existing copy",
+      "mutating": true
+    },
+    {
+      "id": "closeCopyTradingViaPost",
+      "method": "POST",
+      "path": "/api/v2/trading/copy/close",
+      "summary": "Close or detach a copy relationship (JSON body)",
+      "mutating": true
+    },
+    {
+      "id": "closeCopyTradingDemo",
+      "method": "DELETE",
+      "path": "/api/v2/trading/copy/demo",
+      "summary": "Close or detach a copy relationship",
+      "mutating": true
+    },
+    {
+      "id": "registerCopyTradingDemo",
+      "method": "POST",
+      "path": "/api/v2/trading/copy/demo",
+      "summary": "Start copying an investor, or adjust an existing copy",
+      "mutating": true
+    },
+    {
+      "id": "closeCopyTradingViaPostDemo",
+      "method": "POST",
+      "path": "/api/v2/trading/copy/demo/close",
+      "summary": "Close or detach a copy relationship (JSON body)",
+      "mutating": true
+    },
+    {
+      "id": "checkCopyTradingEligibilityDemo",
+      "method": "POST",
+      "path": "/api/v2/trading/copy/demo/eligibility",
+      "summary": "Pre-check whether a copy registration would be allowed",
+      "readOnlyPost": true
+    },
+    {
+      "id": "getCopyTradingStatusDemo",
+      "method": "GET",
+      "path": "/api/v2/trading/copy/demo/{referenceId}",
+      "summary": "Poll a copy operation's outcome"
+    },
+    {
+      "id": "checkCopyTradingEligibility",
+      "method": "POST",
+      "path": "/api/v2/trading/copy/eligibility",
+      "summary": "Pre-check whether a copy registration would be allowed",
+      "readOnlyPost": true
+    },
+    {
+      "id": "getCopyTradingStatus",
+      "method": "GET",
+      "path": "/api/v2/trading/copy/{referenceId}",
+      "summary": "Poll a copy operation's outcome"
+    },
+    {
+      "id": "updateDemoPosition",
+      "method": "PATCH",
+      "path": "/api/v2/trading/demo/positions/{positionId}",
+      "summary": "Modify stop-loss and take-profit settings on an open position",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionDemoOrders",
+      "method": "POST",
+      "path": "/api/v2/trading/execution/demo/orders",
+      "summary": "Create an order",
+      "mutating": true
+    },
+    {
+      "id": "deleteTradingExecutionDemoOrdersByOrderId",
+      "method": "DELETE",
+      "path": "/api/v2/trading/execution/demo/orders/{orderId}",
+      "summary": "Cancels an order before it is executed",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionOrders",
+      "method": "POST",
+      "path": "/api/v2/trading/execution/orders",
+      "summary": "Create an order",
+      "mutating": true
+    },
+    {
+      "id": "deleteTradingExecutionOrdersByOrderId",
+      "method": "DELETE",
+      "path": "/api/v2/trading/execution/orders/{orderId}",
+      "summary": "Cancels an order before it is executed",
+      "mutating": true
+    },
+    {
+      "id": "getCost",
+      "method": "POST",
+      "path": "/api/v2/trading/info/costs",
+      "summary": "Get what-if trading cost breakdown",
+      "readOnlyPost": true
+    },
+    {
+      "id": "getCostDemo",
+      "method": "POST",
+      "path": "/api/v2/trading/info/demo/costs",
+      "summary": "Get what-if trading cost breakdown",
+      "readOnlyPost": true
+    },
+    {
+      "id": "getInstrumentEligibilityDemo",
+      "method": "POST",
+      "path": "/api/v2/trading/info/demo/eligibility",
+      "summary": "Check instrument trading eligibility",
+      "readOnlyPost": true
+    },
+    {
+      "id": "getTradingInfoDemoPortfolioInstrumentBreakdown",
+      "method": "GET",
+      "path": "/api/v2/trading/info/demo/instrument-breakdown",
+      "summary": "Get instrument breakdown (demo)"
+    },
+    {
+      "id": "getTradingInfoDemoOrdersLookup",
+      "method": "GET",
+      "path": "/api/v2/trading/info/demo/orders:lookup",
+      "summary": "Get order information and position details"
+    },
+    {
+      "id": "getInstrumentEligibility",
+      "method": "POST",
+      "path": "/api/v2/trading/info/eligibility",
+      "summary": "Check instrument trading eligibility",
+      "readOnlyPost": true
+    },
+    {
+      "id": "getTradingInfoPortfolioInstrumentBreakdown",
+      "method": "GET",
+      "path": "/api/v2/trading/info/instrument-breakdown",
+      "summary": "Get instrument breakdown"
+    },
+    {
+      "id": "getTradingInfoOrdersLookup",
+      "method": "GET",
+      "path": "/api/v2/trading/info/orders:lookup",
+      "summary": "Get order information and position details"
+    },
+    {
+      "id": "updateRealPosition",
+      "method": "PATCH",
+      "path": "/api/v2/trading/positions/{positionId}",
+      "summary": "Modify stop-loss and take-profit settings on an open position",
+      "mutating": true
+    },
+    {
+      "id": "getWatchlistsV2",
+      "method": "POST",
+      "path": "/api/v2/watchlists",
+      "summary": "Get user watchlists (BFF V2)",
+      "readOnlyPost": true
+    },
+    {
+      "id": "createTradingExecutionDemoOrdersV3",
+      "method": "POST",
+      "path": "/api/v3/trading/execution/demo/orders",
+      "summary": "Submit an order for asynchronous processing",
+      "mutating": true
+    },
+    {
+      "id": "deleteTradingExecutionDemoOrdersByOrderIdV3",
+      "method": "DELETE",
+      "path": "/api/v3/trading/execution/demo/orders/{orderId}",
+      "summary": "Request cancellation of a pending order",
+      "mutating": true
+    },
+    {
+      "id": "createTradingExecutionOrdersV3",
+      "method": "POST",
+      "path": "/api/v3/trading/execution/orders",
+      "summary": "Submit an order for asynchronous processing",
+      "mutating": true
+    },
+    {
+      "id": "deleteTradingExecutionOrdersByOrderIdV3",
+      "method": "DELETE",
+      "path": "/api/v3/trading/execution/orders/{orderId}",
+      "summary": "Request cancellation of a pending order",
+      "mutating": true
+    }
+  ]
+}
