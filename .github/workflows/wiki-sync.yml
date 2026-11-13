@@ -1,0 +1,46 @@
+name: Sync wiki
+
+# Mirrors the user-docs folder to the GitHub wiki of this repo.
+# Install as .github/workflows/wiki-sync.yml. `wiki` below is the default user-docs folder
+# (`user_docs` in .sdlc/repo-structure.md): if the repo uses another, change it in the `paths`
+# filter and the `rsync` source.
+# One-time setup: enable Wikis in repo settings and create a first page by hand,
+# otherwise the <repo>.wiki.git repository does not exist yet.
+on:
+  push:
+    branches: [main]   # change to your default_branch
+    paths: ["wiki/**", ".github/workflows/wiki-sync.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wiki-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clone wiki repo
+        run: |
+          git clone "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.wiki.git" "$RUNNER_TEMP/wiki"
+
+      - name: Mirror the user-docs folder (deletions included)
+        run: rsync -a --delete --exclude '.git' wiki/ "$RUNNER_TEMP/wiki/"
+
+      - name: Commit and push
+        working-directory: ${{ runner.temp }}/wiki
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Wiki already up to date"
+            exit 0
+          fi
+          git commit -m "Sync wiki from ${{ github.sha }}"
+          git push

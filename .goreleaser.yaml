@@ -1,0 +1,36 @@
+version: 2
+project_name: etoro-cli
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: etoro-cli
+    main: ./cmd/etoro-cli
+    binary: etoro-cli
+    env: [CGO_ENABLED=0]
+    goos: [linux, darwin, windows]
+    goarch: [amd64, arm64]
+    ldflags:
+      - -s -w
+      - -X github.com/NunoMotaRicardo/etoro-cli/internal/version.Version={{ .Version }}
+      - -X github.com/NunoMotaRicardo/etoro-cli/internal/version.Commit={{ .Commit }}
+      - -X github.com/NunoMotaRicardo/etoro-cli/internal/version.Date={{ .Date }}
+
+archives:
+  - formats: [tar.gz]
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    files:
+      - LICENSE
+      - README.md
+      - CHANGELOG.md
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  disable: true
