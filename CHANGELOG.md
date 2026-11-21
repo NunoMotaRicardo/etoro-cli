@@ -7,6 +7,9 @@ change to a flag or exit code bumps the minor version and is marked **BREAKING**
 
 ## [Unreleased]
 
+### Fixed
+- `version` now reports the real version, and `version --check` works, for binaries installed with `go install ...@latest`: the version, commit and date fall back to the build info embedded by the Go toolchain when the release ldflags are absent. Previously such installs reported `dev`.
+
 ## [0.2.0] - 2026-11-21
 
 ### Added
