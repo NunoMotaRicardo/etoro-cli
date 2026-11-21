@@ -7,6 +7,8 @@ change to a flag or exit code bumps the minor version and is marked **BREAKING**
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-21
+
 ### Added
 - Account profiles for several eToro accounts: `etoro-cli --profile <name> connect`, `--profile` / `ETORO_PROFILE` on every command, and `etoro-cli profiles`. Each profile has its own demo and real key pairs, so `--profile work --real` uses the real keys of `work`. The `status`, `connect`, trade confirmations and not-connected hints name the profile.
 - Once more than one profile exists, every command that uses credentials needs `--profile` or `ETORO_PROFILE` (exit 2), so a trade can never silently go to the wrong account. Existing setups are unchanged: stored keys are the `default` profile. `ETORO_API_KEY`/`ETORO_USER_KEY` runs need no profile.
@@ -22,5 +24,6 @@ change to a flag or exit code bumps the minor version and is marked **BREAKING**
 - Secrets in the OS keyring with a 0600 file fallback; `ETORO_API_KEY`, `ETORO_USER_KEY`, `ETORO_ENVIRONMENT` overrides.
 - Agent Skill `skills/etoro-cli`, plugin manifests, `version --check`, release tooling.
 
-[Unreleased]: https://github.com/NunoMotaRicardo/etoro-cli/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/NunoMotaRicardo/etoro-cli/compare/v0.2.0...HEAD
 [0.1.0]: https://github.com/NunoMotaRicardo/etoro-cli/releases/tag/v0.1.0
+[0.2.0]: https://github.com/NunoMotaRicardo/etoro-cli/compare/v0.1.0...v0.2.0
