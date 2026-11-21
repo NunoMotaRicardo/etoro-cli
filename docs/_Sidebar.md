@@ -1,6 +1,7 @@
 - [Home](Home.md)
 - [Requirements](product/requirements.md)
 - [Code overview](architecture/code/overview.md)
+- [ADR 0010: account profiles](architecture/adr/0010-account-profiles.md)
 - [Provider sync](plans/provider-sync.md)
 - [Release process](plans/release-process.md)
 - [Sources](sources/README.md)

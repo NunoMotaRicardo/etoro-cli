@@ -20,7 +20,7 @@ import (
 
 // NewRoot builds the command tree for one invocation.
 func (a *App) NewRoot() *cobra.Command {
-	a.fReal, a.fJSON, a.fRaw, a.fYes, a.fFields, a.fLimit = false, false, false, false, "", 0
+	a.fReal, a.fJSON, a.fRaw, a.fYes, a.fFields, a.fLimit, a.fProfile = false, false, false, false, "", 0, ""
 	root := &cobra.Command{
 		Use:   "etoro-cli",
 		Short: "Token-lean eToro Public API client (demo-first)",
@@ -42,10 +42,12 @@ required, 5 ambiguous trade outcome (never resend; check 'etoro-cli portfolio').
 	pf.BoolVar(&a.fYes, "yes", false, "confirm a state-changing call")
 	pf.StringVar(&a.fFields, "fields", "", "comma-separated columns/keys to keep")
 	pf.IntVar(&a.fLimit, "limit", 0, "max rows per table")
+	pf.StringVar(&a.fProfile, "profile", "", "account profile (env ETORO_PROFILE); required once more than one profile exists")
+	root.PersistentPreRunE = func(cmd *cobra.Command, args []string) error { return a.selectProfile(cmd) }
 	root.SetFlagErrorFunc(func(c *cobra.Command, err error) error { return fail(ExitUsage, "%v", err) })
 
 	root.AddCommand(
-		a.cmdVersion(), a.cmdConnect(), a.cmdStatus(), a.cmdLogout(), a.cmdEnv(),
+		a.cmdVersion(), a.cmdConnect(), a.cmdStatus(), a.cmdLogout(), a.cmdEnv(), a.cmdProfiles(),
 		a.cmdAPI(), a.cmdRoutes(),
 		a.cmdSearch(), a.cmdQuote(), a.cmdInstrument(), a.cmdCandles(), a.cmdClosingPrices(),
 		a.cmdPortfolio(false), a.cmdPortfolio(true), a.cmdHistory(),
@@ -160,7 +162,7 @@ func (a *App) cmdStatus() *cobra.Command {
 			if err != nil {
 				return err
 			}
-			d := &Doc{KV: []KV{{"active", active}}}
+			d := &Doc{KV: []KV{{"profile", a.profile()}, {"active", active}}}
 			for _, env := range []string{auth.Demo, auth.Real} {
 				line, r, ok := describe(a, env)
 				if ok && check {
@@ -204,7 +206,12 @@ func (a *App) cmdLogout() *cobra.Command {
 				if err := a.Store.Delete(e); err != nil {
 					return fail(ExitError, "%v", err)
 				}
-				fmt.Fprintf(a.Out, "removed stored %s keys\n", e)
+				fmt.Fprintf(a.Out, "removed stored %s keys%s\n", e, a.profileSuffix())
+			}
+			if !a.Store.HasAny() {
+				if err := a.Store.Unregister(); err != nil {
+					fmt.Fprintf(a.Err, "warning: could not update the profile list: %v\n", err)
+				}
 			}
 			fmt.Fprintln(a.Out, "note: this only deletes local copies; delete the keys in the portal too (api-portal.etoro.com > Settings > Trading > API Key Management)")
 			return nil

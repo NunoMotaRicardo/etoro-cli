@@ -2,6 +2,7 @@
 - [Install](Install.md)
 - [Releases](Releases.md)
 - [Connect](Connect.md)
+- [Profiles](Profiles.md)
 - [Commands](Commands.md)
 - [Using with agents](Using-with-agents.md)
 - [Safety](Safety.md)

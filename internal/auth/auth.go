@@ -17,12 +17,17 @@ const (
 
 // NotConnectedError means there is no usable key pair for the environment.
 type NotConnectedError struct {
-	Env    string
-	Detail string
+	Env     string
+	Profile string // empty or "default" for the default profile
+	Detail  string
 }
 
 func (e *NotConnectedError) Error() string {
-	msg := fmt.Sprintf("not connected (%s): run `etoro-cli connect --env %s` in a terminal", e.Env, e.Env)
+	prof, where := "", ""
+	if e.Profile != "" && e.Profile != secrets.DefaultProfile {
+		prof, where = " --profile "+e.Profile, ", profile "+e.Profile
+	}
+	msg := fmt.Sprintf("not connected (%s%s): run `etoro-cli%s connect --env %s` in a terminal", e.Env, where, prof, e.Env)
 	if e.Detail != "" {
 		msg += " (" + e.Detail + ")"
 	}
@@ -85,7 +90,7 @@ func Resolve(store *secrets.Store, env string, getenv func(string) string) (Reso
 		if EnvKeysPresent(getenv) {
 			detail = "ETORO_* variables are labelled " + getenv("ETORO_ENVIRONMENT")
 		}
-		return Resolved{}, &NotConnectedError{Env: env, Detail: detail}
+		return Resolved{}, &NotConnectedError{Env: env, Profile: store.Profile, Detail: detail}
 	}
 	if err != nil {
 		return Resolved{}, err

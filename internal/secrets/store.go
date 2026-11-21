@@ -75,6 +75,28 @@ func (osKeyring) Delete(s, u string) error {
 type Store struct {
 	File string  // fallback file path
 	Kr   Keyring // nil disables the keyring
+	// Profile is the account profile ("" means DefaultProfile). Within a profile
+	// there is one key pair per environment (demo, real).
+	Profile string
+}
+
+// DefaultProfile is the pre-profile account; its storage keys are unchanged
+// ("demo", "real"). Named profiles use "<profile>/demo" and "<profile>/real".
+const DefaultProfile = "default"
+
+func (s *Store) profile() string {
+	if s.Profile == "" {
+		return DefaultProfile
+	}
+	return s.Profile
+}
+
+// key is the keyring user and credentials-file key for an environment.
+func (s *Store) key(env string) string {
+	if p := s.profile(); p != DefaultProfile {
+		return p + "/" + env
+	}
+	return env
 }
 
 // New builds a store. The keyring is skipped when ETORO_NO_KEYRING is set.
@@ -129,8 +151,9 @@ func (s *Store) writeFile(m map[string]Credentials) error {
 }
 
 // Get returns the stored credentials and where they came from.
-func (s *Store) Get(profile string) (Credentials, string, error) {
+func (s *Store) Get(env string) (Credentials, string, error) {
 	var c Credentials
+	profile := s.key(env)
 	if s.Kr != nil {
 		if v, err := s.Kr.Get(Service, profile); err == nil && v != "" {
 			if json.Unmarshal([]byte(v), &c) == nil && c.APIKey != "" {
@@ -149,7 +172,8 @@ func (s *Store) Get(profile string) (Credentials, string, error) {
 }
 
 // Save stores the credentials, preferring the keyring; it returns the source used.
-func (s *Store) Save(profile string, c Credentials) (string, error) {
+func (s *Store) Save(env string, c Credentials) (string, error) {
+	profile := s.key(env)
 	if c.SavedAt.IsZero() {
 		c.SavedAt = time.Now().UTC()
 	}
@@ -181,7 +205,8 @@ func (s *Store) Save(profile string, c Credentials) (string, error) {
 }
 
 // Delete removes the profile from every backend. Missing entries are not an error.
-func (s *Store) Delete(profile string) error {
+func (s *Store) Delete(env string) error {
+	profile := s.key(env)
 	if s.Kr != nil {
 		_ = s.Kr.Delete(Service, profile)
 	}

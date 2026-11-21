@@ -35,6 +35,7 @@ etoro-cli --help
 
 ```bash
 etoro-cli connect                          # guided API key setup in a terminal (demo + Read recommended)
+etoro-cli --profile work connect           # a second eToro account; then --profile work / ETORO_PROFILE (see wiki: Profiles)
 etoro-cli status                           # check stored credentials and classification
 etoro-cli search "apple"                   # find instrument id / symbol
 etoro-cli quote AAPL BTC                   # live bid/ask/last

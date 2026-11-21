@@ -63,7 +63,7 @@ type App struct {
 	ReleasesURL string
 
 	fReal, fJSON, fRaw, fYes bool
-	fFields                  string
+	fFields, fProfile        string
 	fLimit                   int
 
 	stdin *bufio.Reader
@@ -164,12 +164,12 @@ func (a *App) client() (*etoro.Client, string, error) {
 
 // gate enforces --yes (exit 4) and, for real executions in a terminal, a typed "yes".
 func (a *App) gate(env, summary string) error {
-	line := fmt.Sprintf("[%s] %s", env, summary)
+	line := fmt.Sprintf("[%s] %s", a.label(env), summary)
 	if !a.fYes {
 		return fail(ExitConfirm, "confirmation required: %s; re-run with --yes to execute", line)
 	}
 	if env == auth.Real && a.IsTTY() {
-		fmt.Fprintf(a.Err, "REAL account: %s\nType \"yes\" to execute: ", summary)
+		fmt.Fprintf(a.Err, "REAL account%s: %s\nType \"yes\" to execute: ", a.profileSuffix(), summary)
 		ans, _ := a.readLine()
 		if ans != "yes" {
 			return fail(ExitConfirm, "aborted, nothing was sent")

@@ -1,6 +1,6 @@
 # etoro-cli command catalog
 
-Global flags: `--real` `--json` `--raw` `--yes` `--fields a,b` `--limit N`. Default environment demo. Symbols (`AAPL`) or numeric instrument ids are accepted wherever `<SYM|id>` appears; symbols resolve through search and are cached.
+Global flags: `--real` `--profile <name>` (or `ETORO_PROFILE`; required once more than one account profile exists, see `profiles`) `--json` `--raw` `--yes` `--fields a,b` `--limit N`. Default environment demo. Symbols (`AAPL`) or numeric instrument ids are accepted wherever `<SYM|id>` appears; symbols resolve through search and are cached.
 
 ## Session
 - `connect [--env demo|real]` interactive wizard (user runs it). `status [--check]`, `logout [--env]`, `env`, `version [--check]`.
