@@ -2,6 +2,7 @@
 
 | Symptom | Cause and fix |
 |---|---|
+| exit 2, "more than one profile exists" | Pass `--profile <name>` or set `ETORO_PROFILE` (see [Profiles](Profiles.md)). |
 | exit 3, "not connected" | No keys for this environment. Run `etoro-cli connect --env demo` (or `real`) in a terminal, or set `ETORO_API_KEY`/`ETORO_USER_KEY`/`ETORO_ENVIRONMENT`. |
 | 401 | A key is wrong, expired or swapped. Check both values; regenerate the User Key in the portal. |
 | 403 InsufficientPermissions | The key lacks permission: a Read key cannot trade; a demo key cannot use real-only endpoints (`history` on real). Check environment and permission in the portal. Not retried. |

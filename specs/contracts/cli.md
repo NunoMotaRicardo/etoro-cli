@@ -1,11 +1,18 @@
 # CLI contract
 
-Binary `etoro-cli`. Global flags (all commands): `--real`, `--json`, `--raw`, `--yes`, `--fields a,b`, `--limit N`.
+Binary `etoro-cli`. Global flags (all commands): `--real`, `--profile NAME`, `--json`, `--raw`, `--yes`, `--fields a,b`, `--limit N`.
 
 ## Environment and credentials
 - Active environment: `--real` or `ETORO_ENVIRONMENT=real` selects real; otherwise **demo**.
 - Credentials: `ETORO_API_KEY` + `ETORO_USER_KEY` (labelled by `ETORO_ENVIRONMENT`, default: the active environment) override the stored pair; otherwise the stored pair for the active environment. None: exit 3.
 - Environment guard: a path with a `demo` segment under a real environment, or a `/trading/` path without one under demo, is refused before sending (exit 2).
+
+## Account profiles
+A profile is one eToro account; each holds its own demo and real key pairs. Names match `^[a-z0-9][a-z0-9_-]{0,31}$`; `default` is the pre-profile setup and keeps its storage (see `auth.md`).
+- Selection: `--profile` > `ETORO_PROFILE`. There is no stored "active profile". `--real` / `ETORO_ENVIRONMENT` still pick the environment inside the profile.
+- Rule: when more than one profile exists (registry plus the default profile if it holds keys) and none is selected, every command that uses credentials fails with exit 2 listing the profiles, before any API call. Exempt: `version`, `help`, `completion`, `profiles`, `routes`, and runs with `ETORO_API_KEY` + `ETORO_USER_KEY` set (explicit credentials). With zero or one profile no selection is needed.
+- `profiles` lists each profile with the environments it has keys for and the storage source (never the keys).
+- `status` prints `profile:`; confirmations print `[<profile>/<env>]` for named profiles; not-connected hints become ``etoro-cli --profile <name> connect --env <env>``.
 
 ## Exit codes
 | Code | Meaning |

@@ -4,6 +4,7 @@ A Go CLI and Agent Skill that proxy the eToro Public REST API with compact, toke
 
 - [Install](Install.md) and [Releases](Releases.md)
 - [Connect](Connect.md): create an API key and store it
+- [Profiles](Profiles.md): more than one eToro account
 - [Commands](Commands.md)
 - [Using with agents](Using-with-agents.md)
 - [Safety](Safety.md)

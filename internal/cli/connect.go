@@ -216,7 +216,10 @@ func (a *App) runConnect(cmd *cobra.Command, env string) error {
 		if err != nil {
 			return fail(ExitError, "could not store keys: %v", err)
 		}
-		a.say("   stored under profile %q in the %s", target, map[string]string{"keyring": "OS keyring", "file": "0600 credentials file (no keyring available)"}[src])
+		if err := a.Store.Register(); err != nil {
+			a.say("   warning: could not record the profile: %v", err)
+		}
+		a.say("   stored as %s keys%s in the %s", target, a.profileSuffix(), map[string]string{"keyring": "OS keyring", "file": "0600 credentials file (no keyring available)"}[src])
 		if auth.EnvKeysPresent(a.Getenv) {
 			a.say("   note: ETORO_API_KEY/ETORO_USER_KEY are set in this shell and override stored keys.")
 		}

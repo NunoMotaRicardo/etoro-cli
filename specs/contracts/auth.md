@@ -3,13 +3,15 @@
 ## Mechanism
 Direct REST with API keys: headers `x-api-key` (Public API Key), `x-user-key` (User Key), `x-request-id` (fresh UUID v4 per request, also per retry). Bearer tokens are never sent alongside key headers. OAuth SSO is out of scope for v1 (ADR 0003).
 
-## Profiles
-Two profiles, `demo` and `real`, each one key pair. A key pair is bound by eToro to one environment and one permission (Read or Write).
+## Environments and account profiles
+Each account profile has two key slots, `demo` and `real`, each one key pair. A key pair is bound by eToro to one environment and one permission (Read or Write). The profile `default` is the original single-account setup; named profiles (`--profile work`) are further accounts (see `cli.md`).
 
 ## Storage
-- OS keyring, service `etoro-cli`, account = profile, value = JSON `{api_key, user_key, permission, classified, saved_at}`.
-- Fallback when the keyring is unavailable or `ETORO_NO_KEYRING` is set: `os.UserConfigDir()/etoro-cli/credentials.json`, directory 0700, file 0600, same JSON keyed by profile.
-- Overrides (highest priority): `ETORO_API_KEY`, `ETORO_USER_KEY`, `ETORO_ENVIRONMENT`. The label decides which environment the variables serve (default: the active one); variables labelled for the other environment are ignored.
+- OS keyring, service `etoro-cli`, account = `demo` / `real` for the default profile and `<profile>/demo` / `<profile>/real` for named profiles, value = JSON `{api_key, user_key, permission, classified, saved_at}`.
+- Fallback when the keyring is unavailable or `ETORO_NO_KEYRING` is set: `os.UserConfigDir()/etoro-cli/credentials.json`, directory 0700, file 0600, same JSON keyed by the same names.
+- Profile registry: `<config>/etoro-cli/profiles.json` (`{"profiles":[...]}`, 0600), written by `connect`, pruned by `logout` when a profile has no keys left; needed because keyrings cannot be enumerated. A pre-profile setup counts as profile `default` without a registry entry.
+- Not per profile: the symbol cache (public data) and the trade-spacing state file.
+- Overrides (highest priority, apply to whichever profile is selected, and waive the explicit-profile rule): `ETORO_API_KEY`, `ETORO_USER_KEY`, `ETORO_ENVIRONMENT`. The label decides which environment the variables serve (default: the active one); variables labelled for the other environment are ignored.
 - Key values are never printed, logged or echoed; `status` shows presence, source, classification, permission.
 
 ## Classification
