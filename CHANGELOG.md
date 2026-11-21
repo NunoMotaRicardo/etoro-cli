@@ -7,6 +7,8 @@ change to a flag or exit code bumps the minor version and is marked **BREAKING**
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-21
+
 ### Fixed
 - `version` now reports the real version, and `version --check` works, for binaries installed with `go install ...@latest`: the version, commit and date fall back to the build info embedded by the Go toolchain when the release ldflags are absent. Previously such installs reported `dev`.
 
@@ -27,6 +29,7 @@ change to a flag or exit code bumps the minor version and is marked **BREAKING**
 - Secrets in the OS keyring with a 0600 file fallback; `ETORO_API_KEY`, `ETORO_USER_KEY`, `ETORO_ENVIRONMENT` overrides.
 - Agent Skill `skills/etoro-cli`, plugin manifests, `version --check`, release tooling.
 
-[Unreleased]: https://github.com/NunoMotaRicardo/etoro-cli/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/NunoMotaRicardo/etoro-cli/compare/v0.2.1...HEAD
 [0.1.0]: https://github.com/NunoMotaRicardo/etoro-cli/releases/tag/v0.1.0
 [0.2.0]: https://github.com/NunoMotaRicardo/etoro-cli/compare/v0.1.0...v0.2.0
+[0.2.1]: https://github.com/NunoMotaRicardo/etoro-cli/compare/v0.2.0...v0.2.1
